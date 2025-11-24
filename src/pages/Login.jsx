@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function SignupModal({ onClose }) {
+function Login() {
   const [form, setForm] = useState({
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -15,37 +13,22 @@ function SignupModal({ onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Signup:", form);
+    console.log("Login Page:", form);
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-[#141414] w-full max-w-md p-8 rounded-lg shadow-lg border border-gray-700 relative">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"
-        >
-          ✕
-        </button>
-
-        <h2 className="text-2xl font-semibold mb-2">Signup</h2>
+    <div className="min-h-screen flex items-center justify-center bg-[#0d0d0d] text-white px-4 py-10">
+      <div className="bg-[#141414] w-full max-w-lg p-8 rounded-lg shadow-lg border border-gray-700">
+        <h2 className="text-2xl font-semibold mb-2">Login</h2>
 
         <p className="text-gray-400 mb-5">
-          Already have an account?{" "}
-          <Link to="/login" className="text-white underline">
-            Login
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-white underline">
+            Signup
           </Link>
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            name="username"
-            placeholder="Username"
-            value={form.username}
-            onChange={handleChange}
-            className="w-full bg-transparent border border-gray-600 px-4 py-2 rounded-md"
-          />
           <input
             name="email"
             type="email"
@@ -62,28 +45,19 @@ function SignupModal({ onClose }) {
             onChange={handleChange}
             className="w-full bg-transparent border border-gray-600 px-4 py-2 rounded-md"
           />
-          <input
-            name="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-            value={form.confirmPassword}
-            onChange={handleChange}
-            className="w-full bg-transparent border border-gray-600 px-4 py-2 rounded-md"
-          />
 
           <button className="w-full bg-red-600 py-2 rounded-md hover:bg-red-700">
-            Signup
+            Login
           </button>
         </form>
 
-        {/* Divider */}
-        <div className="flex items-center my-5">
+        <div className="flex items-center my-6">
           <span className="flex-1 h-px bg-gray-600"></span>
           <span className="px-3 text-gray-400 text-sm">or login with</span>
           <span className="flex-1 h-px bg-gray-600"></span>
         </div>
 
-        {/* Social Login */}
+        {/* Social Buttons */}
         <div className="flex gap-3 justify-center">
           <button className="px-4 py-2 bg-blue-700 rounded-md">Facebook</button>
           <button className="px-4 py-2 bg-red-600 rounded-md">Google</button>
@@ -94,4 +68,4 @@ function SignupModal({ onClose }) {
   );
 }
 
-export default SignupModal;
+export default Login;

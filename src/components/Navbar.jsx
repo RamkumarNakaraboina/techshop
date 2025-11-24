@@ -26,7 +26,7 @@ function Navbar() {
 
   return (
     <nav className="w-full bg-[#0e0e0e] text-white fixed top-0 left-0 z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+      <div className="w-full px-6 py-4 flex items-center justify-between">
         {/* LOGO */}
         <Link to="/" className="text-2xl font-bold tracking-wide text-gray-200">
           Tech-Shop
@@ -43,19 +43,21 @@ function Navbar() {
               <FiSearch size={22} />
             </button>
 
-            {/* Search Input */}
             {searchOpen && (
-              <div className="absolute right-0 mt-3 w-64 bg-[#1b1b1b] border border-gray-700 rounded-lg shadow-lg p-3 z-50">
+              <div
+                className="absolute right-0 mt-3 w-64 bg-[#1b1b1b] border border-gray-700 
+                          rounded-lg shadow-lg p-3 z-50"
+              >
                 <input
                   autoFocus
                   type="text"
-                  className="w-full bg-[#111] border border-gray-600 text-white px-3 py-2 rounded-md focus:outline-none"
+                  className="w-full bg-[#111] border border-gray-600 text-white px-3 py-2 
+                         rounded-md focus:outline-none"
                   placeholder="Search products..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
 
-                {/* SEARCH RESULTS */}
                 {filtered.length > 0 && (
                   <div className="mt-3 max-h-56 overflow-y-auto space-y-2">
                     {filtered.map((p) => (
@@ -79,7 +81,6 @@ function Navbar() {
                   </div>
                 )}
 
-                {/* No results */}
                 {searchTerm.length > 0 && filtered.length === 0 && (
                   <p className="text-gray-500 text-sm mt-2">
                     No products found
@@ -92,7 +93,10 @@ function Navbar() {
           {/* CART ICON */}
           <Link to="/cart" className="relative hover:text-white">
             <FiShoppingCart size={22} />
-            <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
+            <span
+              className="absolute -top-2 -right-3 bg-red-500 text-white text-xs 
+                        rounded-full px-1.5 py-0.5"
+            >
               0
             </span>
           </Link>
