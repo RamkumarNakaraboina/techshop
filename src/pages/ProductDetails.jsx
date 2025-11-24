@@ -155,7 +155,6 @@ function ProductDetails() {
       <section className="mt-10">
         <Services />
       </section>
-      <Footer />
     </main>
   );
 }
