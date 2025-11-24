@@ -8,6 +8,7 @@ import Cart from "./pages/Cart";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import TopProducts from "./components/TopProducts";
 
 function App() {
   return (
