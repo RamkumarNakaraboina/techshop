@@ -18,6 +18,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

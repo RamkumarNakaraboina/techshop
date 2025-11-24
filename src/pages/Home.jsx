@@ -9,7 +9,7 @@ function Home() {
       <HeroSlider />
 
       {/* Content area */}
-      <section className="max-w-6xl mx-auto px-4 py-16 space-y-16">
+      <section className="w-full px-4 py-16 space-y-16">
         <FeaturedProducts />
         <Services />
       </section>

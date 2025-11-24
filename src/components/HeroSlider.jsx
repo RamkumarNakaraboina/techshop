@@ -18,7 +18,7 @@ function HeroSlider() {
     <section className="w-full overflow-hidden bg-[#0f0f0f]">
       {/* Slider Wrapper */}
       <div
-        className="flex transition-transform duration-700 ease-out"
+        className="flex transition-transform duration-1000 ease-out"
         style={{
           width: `${heroProducts.length * 100}%`,
           transform: `translateX(-${
