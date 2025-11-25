@@ -1,57 +1,60 @@
+import { Link } from "react-router-dom";
 import productsData from "../data/productsData";
-import ProductCard from "./ProductCard";
-import { useMemo, useState, useEffect } from "react";
 
 function RelatedProducts({ currentId }) {
-  const [slide, setSlide] = useState(0);
+  // 1. Find current product
+  const currentProduct = productsData.find((p) => p.id === Number(currentId));
 
-  const related = useMemo(() => {
-    const current = productsData.find((p) => p.id === currentId);
-    if (!current) return [];
-    return productsData
-      .filter((p) => p.id !== currentId && p.category === current.category)
-      .slice(0, 8);
-  }, [currentId]);
+  if (!currentProduct) return null;
 
-  const slidesCount = Math.max(1, Math.ceil(related.length / 4));
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      setSlide((s) => (s + 1) % slidesCount);
-    }, 4000);
-    return () => clearInterval(t);
-  }, [slidesCount]);
-
-  if (!related.length) return null;
-
-  const start = slide * 4;
-  const visible = related.slice(start, start + 4);
+  // 2. Filter same category products except current one
+  const relatedList = productsData
+    .filter(
+      (p) =>
+        p.category === currentProduct.category && p.id !== currentProduct.id
+    )
+    .slice(0, 4); // show only 4 like your UI
 
   return (
-    <section className="bg-[#050505] py-12">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 className="text-2xl font-semibold mb-6 text-white">
-          Related Products
-        </h2>
+    <section className="max-w-6xl mx-auto px-4 md:px-8 py-10">
+      <h2 className="text-xl font-semibold mb-6">Related Products</h2>
 
-        <div className="grid gap-6 md:grid-cols-4 sm:grid-cols-2">
-          {visible.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        {relatedList.map((product) => (
+          <article
+            key={product.id}
+            className="bg-[#111] rounded-xl p-4 hover:scale-[1.02] transition"
+          >
+            <Link to={`/product-details/${product.id}`}>
+              <div className="bg-[#1a1a1a] rounded-xl p-4 flex justify-center items-center h-32">
+                <img
+                  src={product.images[0]}
+                  alt={product.title}
+                  className="max-h-full object-contain"
+                />
+              </div>
+            </Link>
 
-        {/* dots */}
-        <div className="flex justify-center gap-2 mt-4">
-          {Array.from({ length: slidesCount }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setSlide(i)}
-              className={`w-2 h-2 rounded-full ${
-                slide === i ? "bg-red-600" : "bg-gray-600"
-              }`}
-            />
-          ))}
-        </div>
+            <div className="mt-3">
+              <p className="text-gray-400 text-xs uppercase">{product.brand}</p>
+
+              <Link to={`/product-details/${product.id}`}>
+                <h3 className="text-sm font-semibold hover:text-red-500 transition">
+                  {product.title}
+                </h3>
+              </Link>
+
+              <div className="mt-2">
+                <span className="text-red-500 font-semibold">
+                  ₹{product.finalPrice.toLocaleString("en-IN")}
+                </span>
+                <span className="text-gray-500 line-through text-xs ml-2">
+                  ₹{product.originalPrice.toLocaleString("en-IN")}
+                </span>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

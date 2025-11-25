@@ -1,102 +1,134 @@
+import React from "react";
 import {
-  FiSearch,
-  FiShoppingCart,
-  FiUser,
-  FiFacebook,
-  FiTwitter,
-  FiInstagram,
-} from "react-icons/fi";
-import { Link } from "react-router-dom";
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+import "./Footer.css";
 
-function Footer() {
+const Footer = () => {
   return (
-    <footer className="w-full bg-[#0d0d0d] text-gray-300 mt-20">
-      {/* MAIN FOOTER */}
-      <div className="border-t border-gray-700 py-16">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-          {/* NEWSLETTER */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Tech-Shop</h4>
-            <p className="text-sm text-gray-400 mb-4">
-              Subscribe to our Email alerts to receive early discount offers,
-              new products and more.
-            </p>
-
-            <input
-              type="email"
-              placeholder="Email Address*"
-              className="w-full px-4 py-2 bg-[#111] border border-gray-600 rounded text-sm mb-3 focus:outline-none"
-            />
-            <button className="bg-red-600 px-4 py-2 text-sm rounded text-white hover:bg-red-700">
-              Subscribe
-            </button>
-          </div>
-
-          {/* HELP */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Help</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>FAQs</li>
-              <li>Track Order</li>
-              <li>Cancel Order</li>
-              <li>Return Order</li>
-              <li>Warranty Info</li>
+    <footer>
+      <div className="container-fluid">
+        <div className="row">
+          {/* Column 1 */}
+          <div className="col-md-3">
+            <h1 className="mb-4 footer_first_align">Tech-Shop</h1>
+            <ul className="list-unstyled">
+              <li>
+                <p>
+                  Subscribe to our Email alerts to receive early discount
+                  offers, and new products info
+                </p>
+              </li>
+              <li>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address*"
+                  className="input-group flex-nowrap pt-2 pb-2 footer_inputs form-control input-bg"
+                />
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="btn float-start p-2 mt-3 fw-bolder button_facebook"
+                >
+                  Subscribe
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* POLICIES */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Policies</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>Return Policy</li>
-              <li>Security</li>
-              <li>Sitemap</li>
-              <li>Privacy Policy</li>
-              <li>Terms & Conditions</li>
+          {/* Column 2 */}
+          <div className="col-md-3 text-center">
+            <h1 className="mb-4">Help</h1>
+            <ul className="list-unstyled">
+              <li>
+                <p className="footer_hover">FAQs</p>
+              </li>
+              <li>
+                <p className="footer_hover">Track Order</p>
+              </li>
+              <li>
+                <p className="footer_hover">Cancel Order</p>
+              </li>
+              <li>
+                <p className="footer_hover">Return Order</p>
+              </li>
+              <li>
+                <p className="footer_hover">Warranty Info</p>
+              </li>
             </ul>
           </div>
 
-          {/* COMPANY */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>About Us</li>
-              <li>Contact Us</li>
-              <li>Service Centres</li>
-              <li>Careers</li>
-              <li>Affiliates</li>
+          {/* Column 3 */}
+          <div className="col-md-3 text-center">
+            <h1 className="ps-md-3 mb-4">Policies</h1>
+            <ul className="list-unstyled">
+              <li>
+                <p className="footer_hover">Return Policy</p>
+              </li>
+              <li>
+                <p className="footer_hover">Security</p>
+              </li>
+              <li>
+                <p className="footer_hover">Sitemap</p>
+              </li>
+              <li>
+                <p className="footer_hover">Privacy Policy</p>
+              </li>
+              <li>
+                <p className="footer_hover">Terms & Conditions</p>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4 */}
+          <div className="col-md-3 text-center">
+            <h3 className="ps-md-0 mb-4">Company</h3>
+            <ul className="list-unstyled">
+              <li>
+                <p className="footer_hover">About Us</p>
+              </li>
+              <li>
+                <p className="footer_hover">Contact Us</p>
+              </li>
+              <li>
+                <p className="footer_hover">Service Center</p>
+              </li>
+              <li>
+                <p className="footer_hover">Careers</p>
+              </li>
+              <li>
+                <p className="footer_hover">Affiliates</p>
+              </li>
             </ul>
           </div>
         </div>
-      </div>
 
-      {/* COPYRIGHT + SOCIAL */}
-      <div className="border-t border-gray-800 py-6">
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <p className="text-sm text-gray-500">
-            © 2025 | All Rights Reserved ®
-          </p>
+        <hr />
 
-          <div className="flex items-center gap-6 text-gray-400">
-            <FiFacebook className="hover:text-white cursor-pointer" size={18} />
-            <FiTwitter className="hover:text-white cursor-pointer" size={18} />
-            <FiInstagram
-              className="hover:text-white cursor-pointer"
-              size={18}
-            />
+        {/* Copyright */}
+        <div className="text-start">
+          <div className="row">
+            <div className="col-8">
+              <p>2025 | All Right Reserved &copy;Anji Uluva</p>
+            </div>
+            <div className="col-4 text-end">
+              <div className="d-flex flex-row justify-content-evenly">
+                <FaFacebookF className="fs-5" />
+                <FaTwitter className="fs-5" />
+                <FaInstagram className="fs-5" />
+                <FaLinkedinIn className="fs-5" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* SCROLL TO TOP BUTTON */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 bg-red-600 p-3 rounded-full shadow-xl hover:bg-red-700"
-      >
-        ↑
-      </button>
     </footer>
   );
-}
+};
 
 export default Footer;
