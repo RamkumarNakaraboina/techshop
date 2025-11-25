@@ -1,23 +1,18 @@
-import HeroSlider from "../components/HeroSlider";
-import FeaturedProducts from "../components/FeaturedProducts";
-import Services from "../components/Services";
-import TopProducts from "../components/TopProducts";
-import Footer from "../components/Footer";
+import React from "react";
+import Carousel from "./Crousel";
+import Slider from "./Slider";
+// import TopProduct from './TopProduct'
+import TopProducts from "./TopProduct";
 
-function Home() {
+const Home = () => {
   return (
-    <main className="bg-[#050505] min-h-screen text-white pt-16">
-      <HeroSlider />
-
-      <FeaturedProducts />
+    <div>
+      <h1>Home Page</h1>
+      <Carousel />
+      <Slider />
       <TopProducts />
-
-      {/* Our Advantages */}
-      <section className="mt-12">
-        <Services />
-      </section>
-    </main>
+    </div>
   );
-}
+};
 
 export default Home;
