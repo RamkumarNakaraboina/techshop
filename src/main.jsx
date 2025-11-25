@@ -1,17 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import "./index.css";
-import { ProductsProvider } from "./context/ProductsContext";
-import { CartProvider } from "./context/CartContext.jsx";
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ProductsProvider>
-        <App />
-      </ProductsProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+import App from "./App.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import MyContext from "./myCongtext/MyContext.jsx";
+import { Provider } from "react-redux";
+import { store } from "./reduxToolKit-store/store.js";
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <MyContext>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </MyContext>
+  </StrictMode>
 );

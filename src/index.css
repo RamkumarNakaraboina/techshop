@@ -1,13 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0f0f0f;
+/* @import "tailwindcss"; */
+body {
+  background-color: rgb(33, 37, 41, 1) !important;
 }
